@@ -11,7 +11,8 @@ link_libraries(/usr/local/lib/libjrtp.a)
 
 set(SRC
     # main.cc
-    main2.cc
+    # main2.cc
+    main3.cc
 )
 
-add_executable(${PROJECT_NAME} ${SRC})
+add_executable(${PROJECT_NAME} ${SRC})  

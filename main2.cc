@@ -48,10 +48,11 @@ std::atomic<bool> running {true};
 void senderThread(RTPSession *session, MediaFrame frame)
 {
     while (running) {
+        std::cout << ">>> s" << std::endl;
         int status = session->SendPacket(frame.buf.data(), frame.size, 96, true, 160);
         CHECK_ERROR(status);
         // cout << "[发送] RTP包，大小=" << frame.size << " bytes" << endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 }
 
@@ -61,7 +62,7 @@ void receiverThread(RTPSession *session)
         session->Poll();
         session->BeginDataAccess();
 
-        std::cout << "<received>" << std::endl;
+        std::cout << ">>> r" << std::endl;
 
         while (session->GotoNextSourceWithData()) {
             RTPPacket *pack;
@@ -74,7 +75,7 @@ void receiverThread(RTPSession *session)
         }
 
         session->EndDataAccess();
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 }
 
