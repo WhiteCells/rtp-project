@@ -13,7 +13,7 @@ using namespace jrtplib;
 #define SAMPLE_RATE 8000
 #define FRAMES_PER_BUFFER 160
 #define PORT_BASE 9000
-#define DEST_IP "127.0.0.1"
+#define DEST_IP "192.168.240.192"
 #define DEST_PORT 9000  // 要与 receiver 的 PORT_BASE 一致
 
 int main() {

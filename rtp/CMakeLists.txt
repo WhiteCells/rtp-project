@@ -14,8 +14,10 @@ link_directories(/usr/local/lib)
 add_executable(sender sender.cc)
 add_executable(receiver receiver.cc)
 add_executable(test test.cc)
+add_executable(pipe pipe.cc)
 
 # 链接所需库
 target_link_libraries(sender jrtp portaudio pthread)
 target_link_libraries(receiver jrtp portaudio pthread)
 target_link_libraries(test jrtp portaudio pthread)
+target_link_libraries(pipe jrtp portaudio pthread)
